@@ -26,21 +26,13 @@
           .respond('<p>hi!</p>');
       }));
 
-      // test('math works', function() {
-      //   assert.strictEqual((2 + 2), 4, '2 + 2 equals 4');
-      // });
-
       test('createAuthor works', function(doneCallback) {
 
-        // assert.strictEqual(NewAuthorService.createAuthor().name, 'alex', 'user data starts as null');
 
         var p = NewAuthorService.createAuthor({});
         assert.ok(p.then, 'login returns a promise');
 
         p.then(function(response) {
-          // console.log(response);
-          // console.log(authorData);
-          // console.log('promise success!');
           assert.strictEqual(response.name, 'alex', 'api responds with expected data');
           assert.isAbove(response.email.indexOf('@'), -1, 'email address contains @');
           doneCallback();
