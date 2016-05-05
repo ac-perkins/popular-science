@@ -8,7 +8,7 @@
 
       function CreateNewAuthorController($state, NewAuthorService, LoginService){
 
-        console.log('In Author Stories');
+        // console.log('In Author Stories');
         var that = this;
         this.newAuthor = {};
         this.errorMessage = "";
@@ -17,7 +17,7 @@
           // console.log(this.newAuthor);
           console.log(LoginService);
 
-          NewAuthorService.createAuthor(this.newAuthor)
+          return NewAuthorService.createAuthor(this.newAuthor)
             .then( LoginService.authenticate(this.newAuthor) )
             .then( function goHome() {
               console.log('success');
